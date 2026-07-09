@@ -1,4 +1,4 @@
-const API_URL = 'https://api.github.com/repos/Djangodv/wiki3/contents/'
+const API_URL = 'https://api.github.com/repos/Djangodv/personal-wiki/contents/'
 
 export async function retrieveData(path) {
 

@@ -1,7 +1,7 @@
 import * as githubApi from "../services/githubApi.js";
 import * as mainView from "../components/mainView.js";
 
-const DIRECTORY = 'markdown-example'
+const DIRECTORY = 'docs/test-files/'
 
 // Default export (only one per module) can be named anything you'd like
 // export default async function sideNav() {
