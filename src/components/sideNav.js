@@ -22,7 +22,7 @@ export async function displayEntries() {
 
         registerClickEvent(buttonElement, entry.path);
 
-        // console.log(entry); // Debug
+        console.log(entry); // Debug
     });
     
 };
