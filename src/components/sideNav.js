@@ -10,26 +10,37 @@ const DIRECTORY = 'docs/test-files/'
 export async function displayEntries() {
 
     const fileNav = document.getElementById('file-nav');
-    const apiData = await githubApi.retrieveData(DIRECTORY);
+    // const apiData = await githubApi.retrieveData(DIRECTORY);
 
-    apiData.forEach(entry => {
+    const response = await fetch(DIRECTORY);
+    const data = await response.text();
+
+    const textElement = document.createElement('html');
+    textElement.innerHTML = data;
+
+    // console.log(data); // Debug
+    // console.log(textElement); // Debug
+
+    const directoryData = textElement.querySelectorAll(`[href^="/personal-wiki/${DIRECTORY}"]`);
+
+    directoryData.forEach(file => {
 
         const buttonElement = document.createElement('button');
-        buttonElement.textContent = entry.name;
-        buttonElement.setAttribute('file', entry.path);
+        buttonElement.textContent = file.title;
+        buttonElement.setAttribute('file', file.href);
 
         fileNav.appendChild(buttonElement);
 
-        registerClickEvent(buttonElement, entry);
+        registerClickEvent(buttonElement, file.href);
 
-        // console.log(entry); // Debug
+        // console.log(file); // Debug
     });
     
 };
 
-function registerClickEvent(element, entry) {
+function registerClickEvent(element, filePath) {
     element.addEventListener('click', () => {
         console.log('Entry clicked');
-        mainView.displayContent(entry.path);
+        mainView.displayContent(filePath);
     });
 };
