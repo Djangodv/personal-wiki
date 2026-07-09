@@ -8,5 +8,6 @@ export async function displayContent(filePath) {
     console.log(data);
 
     document.getElementById('main-content').innerHTML = (await markedUtil.parse(data)).content;
+    hljs.highlightAll();
 
 };
