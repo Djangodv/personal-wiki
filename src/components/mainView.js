@@ -1,3 +1,5 @@
+import { marked } from "https://cdn.jsdelivr.net/npm/marked/lib/marked.esm.js";
+
 export async function displayContent(filePath) {
 
     const respone = await fetch(filePath);
@@ -5,6 +7,6 @@ export async function displayContent(filePath) {
 
     console.log(data);
 
-    document.getElementById('main-content').innerHTML = data
+    document.getElementById('main-content').innerHTML = marked.parse(data)
 
 };
