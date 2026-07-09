@@ -1,4 +1,4 @@
-import { marked } from "https://cdn.jsdelivr.net/npm/marked/lib/marked.esm.js";
+import * as markedUtil from "../services/markedUtil.js";
 
 export async function displayContent(filePath) {
 
@@ -7,6 +7,6 @@ export async function displayContent(filePath) {
 
     console.log(data);
 
-    document.getElementById('main-content').innerHTML = marked.parse(data)
+    document.getElementById('main-content').innerHTML = (await markedUtil.parse(data)).content;
 
 };
