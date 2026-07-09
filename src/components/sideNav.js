@@ -30,5 +30,6 @@ export async function displayEntries() {
 function registerClickEvent(element, entry) {
     element.addEventListener('click', () => {
         console.log('Entry clicked');
+        mainView.displayContent(entry.path);
     });
 };
