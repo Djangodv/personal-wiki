@@ -1,7 +1,7 @@
 import * as githubApi from "../services/githubApi.js";
 import * as mainView from "../components/mainView.js";
 
-const DIRECTORY = 'docs/test-files/'
+const DIRECTORY = '/docs/test-files/'
 
 // Default export (only one per module) can be named anything you'd like
 // export default async function sideNav() {
@@ -29,7 +29,7 @@ export async function displayEntries() {
 
 function registerClickEvent(element, filePath) {
     element.addEventListener('click', () => {
-        console.log('Entry clicked');
+        console.log('Entry clicked'); // Debug
         mainView.displayContent(filePath);
     });
 };
