@@ -1,0 +1,17 @@
+/* TODO: Add comments */
+
+.masonary-layout {
+    column-count: 2;
+    padding: 10px;
+}
+
+/* Child <div></div> of ID selector */
+.masonary-layout div {
+    background-color: #f1f1f1;
+    border-left: 1px solid black;
+    break-inside: avoid;
+    page-break-inside: avoid;
+    padding: 20px;
+    margin-bottom: 20px;
+    
+}

@@ -1,1 +1,5 @@
+# Ignore ToDo
 todo.md
+
+# Ignore to avoid risk of sharing personal access token
+githubApi.js
