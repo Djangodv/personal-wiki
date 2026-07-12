@@ -18,7 +18,7 @@ export function rearrange(elementId) {
         
     }
 
-    // Elements with an uneven amount of children, require different hackery in order to create a correct masonary layout
+    // Elements with an uneven amount of children, require different hackery in order to create a correct Masonry layout
     if ((children.length % 2) != 0) { // Check parity
 
         const median = Math.floor(children.length / 2);

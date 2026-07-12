@@ -1,6 +1,6 @@
 import * as markedUtil from "../services/markedUtil.js";
 import * as githubApi from "../services/githubApi.js";
-import * as masonaryLayout from "../components/masonaryLayout.js";
+import * as masonryLayout from "../components/masonryLayout.js";
 
 export async function displayContent(filePath) {
 
@@ -8,6 +8,6 @@ export async function displayContent(filePath) {
 
     document.getElementById('main-content').innerHTML = (await markedUtil.parse(data)).content;
     hljs.highlightAll();
-    masonaryLayout.rearrange('main-content');
+    masonryLayout.rearrange('main-content');
 
 };
