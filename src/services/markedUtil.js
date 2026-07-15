@@ -6,7 +6,6 @@ const renderer = {
     
     heading({tokens, depth}) {
         const text = this.parser.parseInline(tokens);
-        console.log(tokens);
 
         if (depth == 1) {
             if (firstHeader) {
@@ -30,12 +29,11 @@ export async function parse(markdownText) {
 
     firstHeader = true;
 
-    // let
     const content = marked.parse(markdownText);
     const tokens = marked.lexer(markdownText);
 
-    console.log(content);
-    console.log(tokens); // Debug
+    // console.log(content); // Debug
+    // console.log(tokens); // Debug
 
     return {
         content: content,

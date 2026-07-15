@@ -4,9 +4,9 @@ import * as masonryLayout from "../components/masonryLayout.js";
 
 export async function displayContent(filePath) {
 
-    const data = await githubApi.retrieveFile(filePath);
+    const markdownText = await githubApi.retrieveFile(filePath);
 
-    document.getElementById('main-content').innerHTML = (await markedUtil.parse(data)).content;
+    document.getElementById('main-content').innerHTML = (await markedUtil.parse(markdownText)).content;
     hljs.highlightAll();
     masonryLayout.rearrange('main-content');
 

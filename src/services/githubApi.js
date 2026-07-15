@@ -4,7 +4,7 @@ const USERNAME = 'Djangodv'
 const REPOSITORY = 'personal-wiki'
 const BRANCH = 'main'
 
-export async function retrieveData(directoryPath) {
+export async function getDirectoryContents(directoryPath) {
 
     try {
 
@@ -38,9 +38,8 @@ export async function retrieveFile(filePath) {
             throw new Error(`Network response was not ok: ${response.status}`);
         }
 
-        const data = await response.text();
-        console.log(data);
-        return data;
+        const markdownText = await response.text();
+        return markdownText;
 
     } catch (error) {
 

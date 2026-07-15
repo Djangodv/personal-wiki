@@ -10,7 +10,6 @@ export function rearrange(elementId) {
 
     // Loops over each odd numbered child in `divElement` by starting at the first odd numbered child (every time a child gets deleted, the next one will be odd numbered)
     for (let i = 1; i <= Math.floor(children.length / 2); i++) {
-        console.log(i);
 
         // Rearranges the odd numbered elements inside `divElement` by appending them to the end and removing them
         divElement.appendChild(children[i].cloneNode(true));
