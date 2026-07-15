@@ -1,0 +1,39 @@
+@startuml
+
+start
+
+:serviceWorker.register;
+:githubApi.getDirectoryContents;
+:sideNav.displayEntries;
+:dropdownMenu.createExpandButton;
+:sideNav.buttonEntryClicked;
+' :sideNav.registerClickEvent;
+
+switch (user interaction?)
+case (collapse-side-\nnav clicked)
+    :sideNav.collapse;
+case (button-expand \nclicked)
+    :dropdownMenu.toggle;
+    ' :dropdownMenu.extractHeaders;
+case (button-entry \nclicked)
+    ' :sideNav.disableButton;
+    if ( file shown? ) then ( != buttonEntry.name )
+        fork
+            :mainView.displayContent;
+            :githubApi.retrieveFile;
+            :markedUtil.parse;
+            :hljs.highlightAll;
+            :masonaryLayout.rearrange;
+            ' :mainView.copyCodeTooltip;
+        fork again
+            :dropdownMenu.collapseAll;
+            :dropdownMenu.toggle;
+            :dropdownMenu.displayHeaders;
+            :markedUtil.extractHeaders;
+        end fork
+    else ( else )
+    endif
+endswitch
+stop
+
+@enduml
