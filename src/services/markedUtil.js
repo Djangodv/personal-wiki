@@ -41,3 +41,20 @@ export async function parse(markdownText) {
     }
     
 }
+
+export async function extractHeaders(markdownText) {
+
+    const tokens = (await parse(markdownText)).tokens;
+    let titlesList = [];
+
+    tokens.forEach(element => {
+        if (element.type === 'heading') {
+            titlesList.push(element.text);
+        }
+    });
+
+    // console.log(titlesList); // debug
+
+    return titlesList;
+    
+}

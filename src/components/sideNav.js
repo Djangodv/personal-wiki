@@ -7,15 +7,14 @@ export async function displayEntries(apiData, clickEvent) {
 
     const fileNav = document.getElementById('file-nav');
 
-    apiData.forEach(entry => {
+    apiData.forEach(dataEntry => {
 
         const buttonEntryElement = document.createElement('button');
-        buttonEntryElement.textContent = entry.name;
-        // buttonEntryElement.setAttribute('path', entry.path);
+        buttonEntryElement.textContent = dataEntry.name;
 
         fileNav.appendChild(buttonEntryElement);
 
-        clickEvent(buttonEntryElement, entry.path);
+        clickEvent(buttonEntryElement, dataEntry.name, dataEntry.path);
 
         // console.log(entry); // Debug
     });
