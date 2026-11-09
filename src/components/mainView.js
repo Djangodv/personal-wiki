@@ -1,6 +1,6 @@
 import * as markedUtil from "../services/markedUtil.js";
 import * as githubApi from "../services/githubApi.js";
-import * as masonryLayout from "../components/masonryLayout.js";
+import * as masonryLayout from "./masonryLayout.js";
 
 export async function displayContent(filePath) {
 

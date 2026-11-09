@@ -1,5 +1,11 @@
 import { marked } from "https://cdn.jsdelivr.net/npm/marked/lib/marked.esm.js"; // Include marked.js
 
+// Set options
+marked.use({
+    gfm: true, // Enable Github flavored markdown
+    breaks: true // Match GFM specifications regarding line breaks: https://github.github.com/gfm/#hard-line-breaks
+});
+
 let firstHeader = true;
 
 const renderer = {
