@@ -41,11 +41,10 @@ export function toggle(buttonElement, filename, filePath) {
 
     const dropdownElement = document.querySelector(`[name="${filename}"]`);
 
-    // Checks whether dropdownElement already exists and only creates it, if not
+    // Checks whether dropdownElement already exists and only creates it, when it doesn't
     if (dropdownElement === null) {
         generateHeaders(buttonElement, filename, filePath);
     } else {
-        collapseAll();
         dropdownElement.style.display = 'block';
     }
 

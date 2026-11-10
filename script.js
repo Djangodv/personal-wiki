@@ -15,6 +15,7 @@ function buttonEntryClicked(element, filename, filePath) {
 
         // console.log('Entry clicked'); // Debug
         mainView.displayContent(filePath);
+        dropdownMenu.collapseAll();
         dropdownMenu.toggle(element, filename, filePath);
     });
 };
