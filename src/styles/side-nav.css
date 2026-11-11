@@ -12,6 +12,19 @@
 }
 
 #side-nav a, button{
-	color: #111;
+	/* color: #111; */
 	display: block;
+}
+
+#file-nav {
+    display: block;
+}
+
+.button-expand {
+    position: absolute;
+}
+
+.button-file {
+    margin-left: 60px;
+    position: relative;
 }

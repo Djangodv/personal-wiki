@@ -1,11 +1,16 @@
 import * as githubApi from "../services/githubApi.js";
 import * as markedUtil from "../services/markedUtil.js";
+import * as mainView from "./mainView.js";
 
 async function generateHeaders(buttonElement, filename, filePath) {
 
     const dropdownElement = document.createElement('div');
     dropdownElement.className = 'dropdown-container';
     dropdownElement.setAttribute('name', filename);
+
+    dropdownElement.addEventListener('click', () => {
+        mainView.displayContent(filePath);
+    });
 
     const markdownText = await githubApi.retrieveFile(filePath);
     const headers = await markedUtil.extractHeaders(markdownText);
@@ -23,18 +28,35 @@ async function generateHeaders(buttonElement, filename, filePath) {
     });
 
     // Placed here to counter the slight delay that happens each time generateHeaders() is called
-    collapseAll();
-    buttonElement.appendChild(dropdownElement);
+    // collapseAll();
+
+    // Places the dropdown headers directly under the buttonElement itself
+    buttonElement.after(dropdownElement);
     
 }
 
 // Hide all dropdown menus
-function collapseAll() {
+export function collapseAll() {
     const elements = document.getElementsByClassName('dropdown-container');
     for (let i = 0; i < elements.length; i++) {
         // console.log(elements[i]);
         elements[i].style.display = 'none';
     } 
+}
+
+export function createExpandButton(buttonElement, filename, filePath) {
+
+    const buttonExpandElement = document.createElement('button');
+
+    buttonExpandElement.textContent = 'Expand';
+    buttonExpandElement.className = 'button-expand';
+
+    buttonExpandElement.addEventListener('click', () => {
+        toggle(buttonElement, filename, filePath);
+    });
+
+    return buttonExpandElement;
+    
 }
 
 export function toggle(buttonElement, filename, filePath) {
